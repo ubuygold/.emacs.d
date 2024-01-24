@@ -21,7 +21,3 @@
 
 ;; Set ivy Project find function
 (global-set-key (kbd "C-c C-s") 'counsel-rg)
-
-(with-eval-after-load 'typescript-mode
-  (defun prelude-ts-mode-defaults ()
-    (lsp-mode +1)))
