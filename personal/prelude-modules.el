@@ -66,7 +66,7 @@
 
 (require 'prelude-c)
 ;; (require 'prelude-clojure)
-;; (require 'prelude-coffee)
+(require 'prelude-coffee)
 (require 'prelude-common-lisp)
 (require 'prelude-css)
 ;; (require 'prelude-dart)
@@ -89,7 +89,7 @@
 ;; (require 'prelude-ruby)
 ;; (require 'prelude-rust)
 ;; (require 'prelude-scala)
-;; (require 'prelude-scheme)
+(require 'prelude-scheme)
 (require 'prelude-shell)
 ;; (require 'prelude-scss)
 (require 'prelude-ts)

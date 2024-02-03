@@ -30,7 +30,7 @@
 ;;; Code:
 
 (require 'prelude-programming)
-(prelude-require-packages '(tide typescript-mode))
+(prelude-require-packages '(tide typescript-mode lsp-mode))
 
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 
@@ -41,6 +41,7 @@
     (flycheck-mode +1)
     (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (eldoc-mode +1)
+    (lsp-mode +1)
     (tide-hl-identifier-mode +1))
 
   ;; formats the buffer before saving
