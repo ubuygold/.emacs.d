@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(coffee-mode geiser-mit geiser-chez company-solidity solidity-flycheck solidity-mode csv-mode counsel-tramp lsp-tailwindcss helm-rg prettier ace-window)))
+   '(php-mode notmuch nil projectile-ripgrep ripgrep coffee-mode geiser-mit geiser-chez company-solidity solidity-flycheck solidity-mode csv-mode counsel-tramp lsp-tailwindcss helm-rg prettier ace-window)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -22,8 +22,8 @@
 (global-set-key (kbd "C-c C-s") 'counsel-rg)
 
 ;; chezscheme
-(setq scheme-program-name "chezscheme")
-(setq geiser-chez-binary "chezscheme")
+(setq scheme-program-name "chez")
+(setq geiser-chez-binary "chez")
 
 ;;coffee-lsp
 ;; (require 'lsp-mode)
@@ -39,3 +39,16 @@
 (add-to-list 'eglot-server-programs '(coffee-mode . ("coffeesense-language-server")))
 (require 'coffee-mode)
 (add-hook 'coffee-mode-hook 'eglot-ensure)
+
+
+(with-eval-after-load 'php-mode
+  (defun prelude-php-mode-defaults ()
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (eldoc-mode +1)
+    (lsp-mode +1)
+    (add-hook 'before-save-hook #'lsp-format-buffer nil t))
+  ;; formats the buffer before saving
+  (setq prelude-php-mode-hook 'prelude-php-mode-defaults)
+
+  (add-hook 'php-mode-hook (lambda () (run-hooks 'prelude-php-mode-hook))))

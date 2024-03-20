@@ -33,6 +33,7 @@
 (prelude-require-packages '(web-mode))
 
 (require 'web-mode)
+(require 'lsp-mode)
 
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -61,7 +62,8 @@
   (sp-local-tag "#" "<%# " " %>"))
 
 (with-eval-after-load 'web-mode
-  (defun prelude-web-mode-defaults ())
+  (defun prelude-web-mode-defaults ()
+    (lsp-mode +1))
   (setq prelude-web-mode-hook 'prelude-web-mode-defaults)
 
   (add-hook 'web-mode-hook (lambda ()

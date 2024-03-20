@@ -31,6 +31,7 @@
 ;;; Code:
 
 (require 'prelude-programming)
+(require 'lsp-mode)
 
 ;; use cperl-mode instead of perl-mode
 (defalias 'perl-mode 'cperl-mode)
@@ -50,7 +51,7 @@
   (setq cperl-info-on-command-no-prompt t)
   (setq cperl-clobber-lisp-bindings t)
   (setq cperl-lazy-help-time 3)
-
+  (lsp)
   ;; if you want all the bells and whistles
   ;; (setq cperl-hairy)
 
